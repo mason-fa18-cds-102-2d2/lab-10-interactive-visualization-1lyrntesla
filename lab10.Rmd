@@ -50,18 +50,52 @@ There is a general trend that as gross horsepower increases, the miles per gallo
 
 ## Exercise 2
 
+```{r}
+hchart(mtcars, type = "bar", hcaes(x = Name, y = hp, group = carb)) %>%
+  hc_title(text = "Gross horsepower and number of carburetors by car") %>%
+  hc_xAxis(title = list(text = "Car")) %>%
+  hc_yAxis(title = list(text = "Gross horsepower"))
+```
+
+```{r}
+hchart(mtcars, type = "bar", hcaes(x = Name, y = hp, group = carb)) %>%
+  hc_title(text = "Gross horsepower and number of carburetors by car") %>%
+  hc_xAxis(title = list(text = "Car")) %>%
+  hc_yAxis(title = list(text = "Gross horsepower")) %>%
+  hc_add_theme(hc_theme_db()) 
+```
+
+NEED TO FIGURE OUT "Also, you can observe that there are 6 categories of the carburetor (1, 2, 3, 4, 6, 8). Please mention the name of the car(s) which have the highest gross horsepower in every category.""
 
 
 ## Exercise 3
 
+```{r}
+leaflet() %>%
+  addProviderTiles(providers$Esri.DeLorme) %>%
+  setView(lng = -98.4936, lat = 29.4241, zoom = 10)
+```
 
-
+The greater the number in used for "zoom", the more zoomed in the map is. There appears to be a limit, I saw no change between zoom = 200 and zoom = 400.
 
 ## Exercise 4
 
-
+```{r}
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%
+  addCircleMarkers(lat = school$lat, lng = school$lon)
+```
 
 ## Exercise 5
 
-
+```{r}
+leaflet() %>%
+  addTiles() %>%
+  setView(lng = -100.243683, lat =  34.052235, zoom = 3) %>%
+  addMarkers(lat = school$lat, lng = school$lon,
+             popup = paste("School name:", school$School_Name, "<br>",
+                           "School rank:", school$School_Rank, "<br>",
+                           "School URL:", school$School_Url)) 
+```
 
