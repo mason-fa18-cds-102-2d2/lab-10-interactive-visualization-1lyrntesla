@@ -1,7 +1,7 @@
 ---
 title: "Lab 10: Interactive visualization"
 author: "Lyrica Phelps"
-date: "Date of lab session"
+date: "24Nov18"
 documentclass: article
 geometry: margin=1in
 fontsize: 11pt
@@ -34,7 +34,7 @@ mtcars <- read.csv("Cars.csv")
 school <- read.csv("School_University_100.csv")
 
 ```
- 
+
 ---
 
 ## Exercise 1
@@ -54,29 +54,27 @@ There is a general trend that as gross horsepower increases, the miles per gallo
 hchart(mtcars, type = "bar", hcaes(x = Name, y = hp, group = carb)) %>%
   hc_title(text = "Gross horsepower and number of carburetors by car") %>%
   hc_xAxis(title = list(text = "Car")) %>%
-  hc_yAxis(title = list(text = "Gross horsepower"))
-```
-
-```{r}
-hchart(mtcars, type = "bar", hcaes(x = Name, y = hp, group = carb)) %>%
-  hc_title(text = "Gross horsepower and number of carburetors by car") %>%
-  hc_xAxis(title = list(text = "Car")) %>%
   hc_yAxis(title = list(text = "Gross horsepower")) %>%
   hc_add_theme(hc_theme_db()) 
 ```
 
-NEED TO FIGURE OUT "Also, you can observe that there are 6 categories of the carburetor (1, 2, 3, 4, 6, 8). Please mention the name of the car(s) which have the highest gross horsepower in every category.""
-
+The higest gross horsepower in each category of carburetor is:
+1) Hornet 4-drive at 110
+2) A tie between Hornet Sportabout and Pontiac Firebird at 175
+3) A 3-way tie between Mercedes 450 SE, SL, and the SLC at 180
+4) Ford Panterra L at 264
+6) Ferrari Dino at 175
+8) Maserati Bora at 335
 
 ## Exercise 3
 
 ```{r}
 leaflet() %>%
-  addProviderTiles(providers$Esri.DeLorme) %>%
+  addProviderTiles(providers$Stamen.Toner) %>%
   setView(lng = -98.4936, lat = 29.4241, zoom = 10)
 ```
 
-The greater the number in used for "zoom", the more zoomed in the map is. There appears to be a limit, I saw no change between zoom = 200 and zoom = 400.
+The greater the number in used for "zoom", the more zoomed in the map is (meaning your view appears CLOSER to the ground level). There appears to be a limit, I saw no change between zoom = 200 and zoom = 400. The zoom only gives you the starting point, once you have knitted the .rmd file, you can use the mouse to zoom in and out.
 
 ## Exercise 4
 
