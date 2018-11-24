@@ -1,6 +1,6 @@
 ---
 title: "Lab 10: Interactive visualization"
-author: "Fill in your full name"
+author: "Lyrica Phelps"
 date: "Date of lab session"
 documentclass: article
 geometry: margin=1in
@@ -32,13 +32,21 @@ suppressPackageStartupMessages(library(leaflet))
 # Load dataset
 mtcars <- read.csv("Cars.csv")
 school <- read.csv("School_University_100.csv")
-```
 
+```
+ 
 ---
 
 ## Exercise 1
 
+```{r}
+hchart(mtcars, "scatter", hcaes(x = hp, y = mpg, group = cyl)) %>%
+  hc_title(text = "Miles per gallon vs Gross horsepower") %>%
+  hc_xAxis(title = list(text = "Gross horsepower")) %>%
+  hc_yAxis(title = list(text = "Miles per gallon")) 
+```
 
+There is a general trend that as gross horsepower increases, the miles per gallon decrease. Also, in general the more cylinders there are, the lower the miles per gallon.
 
 ## Exercise 2
 
